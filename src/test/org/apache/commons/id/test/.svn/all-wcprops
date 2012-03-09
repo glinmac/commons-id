@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/test
+END
+AssertSerialization.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/test/AssertSerialization.java
+END
+AssertIO.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/test/AssertIO.java
+END

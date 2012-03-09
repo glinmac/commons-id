@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id
+END
+SerializationTestContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/SerializationTestContext.java
+END
+ConstantIdentifierGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/ConstantIdentifierGeneratorTest.java
+END
+CompositeIdentifierGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/CompositeIdentifierGeneratorTest.java
+END

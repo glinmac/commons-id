@@ -1,0 +1,101 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.id.random;
+
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
+import org.apache.commons.id.SerializationTestContext;
+import org.apache.commons.id.StringIdentifierGenerator;
+import org.apache.commons.id.test.AssertSerialization;
+
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * @author Commons-Uid team
+ * @version $Id: SessionIdGeneratorTest.java 480488 2006-11-29 08:57:26Z bayard $
+ */
+public class SessionIdGeneratorTest extends TestCase {
+
+    /** Test String Session identifier */
+    public void testStringSession() {
+        StringIdentifierGenerator f = new SessionIdGenerator();
+        
+        String id = f.nextStringIdentifier();
+        assertTrue(id.length() >= 10);
+        
+        // wait for next internal tic
+        while(id.substring(6, 9).equals(f.nextStringIdentifier().substring(6, 9)));
+
+        // should be executed within the next 2000 ms
+        String a = f.nextStringIdentifier();
+        String b = f.nextStringIdentifier();
+        String c = (String) f.nextIdentifier();
+        assertTrue(a.length() >= 10);
+        assertTrue(b.length() >= 10);
+        assertTrue(c.length() >= 10);
+        assertTrue(a.substring(6, 9).equals(b.substring(6, 9)));
+        assertTrue(a.substring(6, 9).equals(c.substring(6, 9)));
+        assertEquals("1", a.substring(9));
+        assertEquals("2", b.substring(9));
+        assertEquals("3", c.substring(9));
+    }
+
+    /** Multiple instances generate still unique ids. */
+    public void testMultipleInstancesWillCreateUniqueIds() {
+        Set set = new HashSet();
+        StringIdentifierGenerator[] generators = new StringIdentifierGenerator[100];
+        for (int i = 0; i < generators.length; i++) {
+            generators[i] = new SessionIdGenerator();
+        }
+        for (int i = 0; i < generators.length; i++) {
+            for (int j = 0; j < generators.length; j++) {
+                set.add(generators[j].nextIdentifier());
+            }
+        }
+        assertEquals(generators.length*generators.length, set.size());
+    }
+    
+    /**
+     * {@link TestSuite} for SessionIdGenerator. Ensures serialization.
+     * 
+     * @return the TestSuite
+     */
+    public static TestSuite suite() {
+        final TestSuite suite = new TestSuite(SessionIdGeneratorTest.class);
+        suite.addTest(AssertSerialization.createSerializationTestSuite(new SerializationTestContext() {
+
+            public void verify(Object serialized, long uid) {
+                SessionIdGenerator test = (SessionIdGenerator)serialized;
+                SessionIdGenerator idGenerator = (SessionIdGenerator)createReference();
+                assertEquals(idGenerator.maxLength(), test.maxLength());
+                assertEquals(idGenerator.minLength(), test.minLength());
+            }
+
+            public Serializable createReference() {
+                return new SessionIdGenerator();
+            }
+
+            public Class getType() {
+                return SessionIdGenerator.class;
+            }
+        }));
+        return suite;
+    }
+}

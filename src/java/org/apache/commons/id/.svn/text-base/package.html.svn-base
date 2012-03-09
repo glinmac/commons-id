@@ -1,0 +1,41 @@
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+  -->
+<body> 
+  <p>
+     This package contains factories and implementation classes to generate unique
+     identifiers.</p>
+  <p>
+     The implementation is divided into the following subpackages.
+     <ul>
+     <li>The main package contains uid interface definitions, abstract base
+     classes for identifier generators, generator factories and an
+     IdentifierUtils convenience class that maintains singleton generators and 
+     exposes static methods for generating identifiers of the various kinds.</li>
+     
+     <li>The <code>random</code> subpackage contains implementations of
+     generators that return identifiers that appear to be random.</li>
+
+     <li>The <code>serial</code> subpackage contains generators that yield
+     sequences of identifiers that follow a regular sequence (e.g., increasing
+     numeric values).</li>
+     
+     <li>The <code>uuid</code> subpackage contains implementations of the 
+     <a href="http://www.ietf.org/internet-drafts/draft-mealling-uuid-urn-01.txt">
+     IETF Draft UUID specification</a></li>
+     </ul>
+   </p>
+</body>

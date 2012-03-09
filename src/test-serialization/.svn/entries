@@ -1,0 +1,46 @@
+10
+
+dir
+1298865
+http://svn.apache.org/repos/asf/commons/sandbox/id/trunk/src/test-serialization
+http://svn.apache.org/repos/asf
+
+
+
+2006-02-06T20:08:13.128797Z
+375350
+joehni
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+13f79535-47bb-0310-9956-ffa450edef68
+
+org.apache.commons.id.serial.LongGenerator
+dir
+
+org.apache.commons.id.random.SessionIdGenerator
+dir
+
+org.apache.commons.id.serial.NumericGenerator
+dir
+
+org.apache.commons.id.CompositeIdentifierGenerator
+dir
+
+org.apache.commons.id.serial.AlphanumericGenerator
+dir
+
+org.apache.commons.id.serial.TimeBasedAlphanumericIdentifierGenerator
+dir
+

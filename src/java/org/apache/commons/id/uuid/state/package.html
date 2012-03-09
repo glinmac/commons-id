@@ -1,0 +1,46 @@
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+  -->
+
+<body>
+  <p>
+      This package contains persistent and non-persistent state 
+      implementations for data related to the generation of version 1 UUIDs. Not 
+      all containers allow I/O; however when generating version 1 UUIDs it is best 
+      to persist the node identifier (MAC address), clock sequence, and last 
+      timestamp generated combination to stable storage. This allows the generator
+      to determine if the time has been set backwards so that a different clock 
+      sequence is used to reduce the likelihood of duplicate identifiers.
+  </p>
+  <p>
+    Three provided implementation are:
+    <ul>
+      <li><code>ReadOnlyResourceStateImpl</code> -  loads one of the data points
+      (node id) using the Classloader's getSystemResource method. Useful for 
+      containers that allow reading resources but that don't allow writing to file.
+      The clock sequence is always initialized to a random short.
+      </li>
+      <li><code>ReadWriteFileStateImpl</code> -  when possible a version one 
+      generator should persist to stable storage. This implementation extends 
+      ReadOnlyResourceStateImpl but also writes to the state configuration file.
+      </li>
+      <li><code>InMemoryStateImpl</code> -  all data points are strictly managed
+      in memory with no long-term storage. The node identifier is created from a
+      MD5 hash of System properties.
+      </li>
+    </ul>
+  </p>
+</body>

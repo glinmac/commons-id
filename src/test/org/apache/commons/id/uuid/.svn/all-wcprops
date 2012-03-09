@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/uuid
+END
+NodeManagerImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/uuid/NodeManagerImplTest.java
+END
+UUIDTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/uuid/UUIDTest.java
+END
+VersionFourGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/uuid/VersionFourGeneratorTest.java
+END

@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+  -->
+<document>
+
+ <properties>
+  <title>Overview</title>
+  <author email="dev@commons.apache.org">Commons Documentation team</author>
+  <revision>$Id: index.xml 560803 2007-07-29 20:11:17Z bayard $</revision>
+ </properties>
+
+ <body>
+
+<section name="The Id Component">
+
+<p>
+  Commons Id is a component used to generate identifiers.
+  Several identifier-generation algorithms are supported by Generators included
+  with the package.  The framework is extensible to support additional implementations.
+</p>
+<p>
+  A utility class, <code>IdentifierUtils,</code> provides access to singleton generators and
+  methods to generate identifiers without explicitly creating a Generator.
+</p>
+<p>
+  For example, to generate a sequence of Alphanumeric identifiers, starting with
+  ""000000000000001" and increasing sequentially, you can just repeatedly call
+  <source>
+      IdentifierUtils.nextStringAlphanumericIdentifier();
+  </source>
+  The underlying Generator used in this case is a static field of the 
+  <code>IdentifierUtils</code> class, exposed publicly as 
+  <code>IdentifierUtils.STRING_ALPHANUMERIC_IDENTIFIER_GENERATOR.</code> 
+  The Generator implementation (like all others in this package) is synchronized.
+</p>
+<p>
+  You can also create Generators explicitly using the <code>IdentifierGeneratorFactory</code> 
+  abstract factory class.  To get an Identifier Generator instance, first get a concrete
+  factory and then use the appropriate instance creation method:
+  <source>
+    IdentifierGeneratorFactory factory = IdentifierGeneratorFactory.newInstance();
+    StringIdentifierGenerator generator = factory.alphanumericGenerator();
+  </source>
+  Then you can use the Generator to generate identifiers:
+  <source>
+    String id = generator.nextStringIdentifier();
+  </source>
+</p>
+<subsection name="Generators Provided">
+  <table>
+    <tr><th>Generator</th><th>Description</th></tr>
+    <tr><td>
+    <a href="./apidocs/org/apache/commons/id/serial/AlphanumericGenerator.html">
+    AlphanumericGenerator</a></td><td>Generates an incrementing number in base 36 as a 
+    String object</td></tr>
+    <tr><td>
+    <a href="./apidocs/org/apache/commons/id/serial/NumericGenerator.html">NumericGenerator</a>
+    </td><td>Generates an incrementing decimal number as a String 
+    object</td></tr>
+    <tr><td>
+    <a href="./apidocs/org/apache/commons/id/serial/LongGenerator.html">
+    LongGenerator</a></td><td>Generates an incrementing number as a Long object</td></tr>
+    <tr><td>
+    <a href="./apidocs/org/apache/commons/id/random/SessionIdGenerator.html">
+    SessionIdGenerator</a></td><td>Generates an alphanumeric 10+ character identifier with a
+    random component. The exact length depends on the number of ids requested per 
+    time period.</td></tr>
+    <tr><td>
+    <a href="uuid.html">UUID Generators</a></td><td>Generates universally Unique Identifiers 
+    based on the <a href="http://www.ietf.org/internet-drafts/draft-mealling-uuid-urn-04.txt">
+    IETF Draft Uuid Specification.</a>
+    </td></tr>
+  </table>
+</subsection>
+</section>
+
+<section name="Releases">
+    <p>
+       See the <a href="downloads.html">downloads</a> page for information on obtaining releases.
+    </p>
+<br/><br/>
+</section>
+
+<section name="Documentation">
+  <p>
+     The <a href="apidocs/index.html">JavaDoc API documents</a> are available online.
+  </p>
+</section>
+
+</body>
+</document>

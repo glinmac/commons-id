@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/uuid/clock
+END
+SystemClockImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/uuid/clock/SystemClockImplTest.java
+END
+ThreadClockImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/uuid/clock/ThreadClockImplTest.java
+END

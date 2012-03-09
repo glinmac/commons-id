@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id
+END
+DigestUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/DigestUtils.java
+END
+StringIdentifierGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/StringIdentifierGenerator.java
+END
+ConstantIdentifierGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/ConstantIdentifierGenerator.java
+END
+AbstractStringIdentifierGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/AbstractStringIdentifierGenerator.java
+END
+DecoderException.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/DecoderException.java
+END
+Hex.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/Hex.java
+END
+IdentifierGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/IdentifierGenerator.java
+END
+LongIdentifierGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/LongIdentifierGenerator.java
+END
+CompositeIdentifierGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/CompositeIdentifierGenerator.java
+END
+AbstractLongIdentifierGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/AbstractLongIdentifierGenerator.java
+END
+EncoderException.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/EncoderException.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/package.html
+END

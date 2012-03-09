@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE uuidstate [
+   <!ELEMENT uuidstate (node*)>
+   <!ELEMENT node EMPTY>
+   <!ATTLIST node id ID #REQUIRED>
+   <!ATTLIST node clocksequence CDATA #IMPLIED>
+   <!ATTLIST node lasttimestamp CDATA #IMPLIED>
+]>
+<uuidstate synchInterval="3000">
+     <node id="02-00-4C-4F-4F-50" />
+     <node id="02-00-4C-4F-4F-55" />
+</uuidstate>

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/uuid
+END
+NodeManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/uuid/NodeManager.java
+END
+NodeManagerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/uuid/NodeManagerImpl.java
+END
+Bytes.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/uuid/Bytes.java
+END
+UUID.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/uuid/UUID.java
+END
+VersionFourGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/uuid/VersionFourGenerator.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/uuid/Constants.java
+END
+UUIDFormatException.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/uuid/UUIDFormatException.java
+END
+VersionOneGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/uuid/VersionOneGenerator.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/uuid/package.html
+END

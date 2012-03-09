@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/serial
+END
+AlphanumericGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/serial/AlphanumericGeneratorTest.java
+END
+PrefixedNumericGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/serial/PrefixedNumericGeneratorTest.java
+END
+TimeBasedAlphanumericIdentifierGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/serial/TimeBasedAlphanumericIdentifierGeneratorTest.java
+END
+LongGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/serial/LongGeneratorTest.java
+END
+PrefixedAlphanumericGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/serial/PrefixedAlphanumericGeneratorTest.java
+END
+NumericGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/serial/NumericGeneratorTest.java
+END
+PrefixedLeftPaddedNumericGeneratorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/test/org/apache/commons/id/serial/PrefixedLeftPaddedNumericGeneratorTest.java
+END

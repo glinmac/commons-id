@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+  -->
+<document>
+  <properties>
+    <author email="Commons Id Team">Commons Id Team</author>
+    <title>UUID Documentation</title>
+  </properties>
+  <meta name="keyword" content="java, commons-id, universally unique identifier, UUID, GUID"/>
+
+<body>
+<section name="Overview">
+<p>
+  A Universally Unique Identifier (UUID) is a 128-bit identifier described in 
+  Internet Engineering Task Force 
+  <a href="ftp://ftp.rfc-editor.org/in-notes/rfc4122.txt">RFC 4122:
+  A Universally Unique IDentifier (UUID) URN Namespace</a>.
+</p>
+<p>
+  Generators for versions 1,3,4 and 5 UUID&apos;s are provided. The value held
+  in a UUID is represented by a specific hexadecimal format of the binary
+  fields. An example UUID string representation is:
+  F81D4FAE-7DEC-11D0-A765-00A0C91E6BF6.  
+</p>
+<p>
+  A cautionary note:  there is no standard regarding binary representation of a
+  UUID other than its string format.
+</p>
+</section>
+<section name="UUID version 4">
+<p>
+  The version 4 UUID is UUID based on random bytes. We fill the 128-bits with
+  random bits (6 of the bits are correspondingly set to flag the version and
+  variant of the UUID).  No special configuration or implementation decisions
+  are required to generate version 4 UUID&apos;s.
+</p>
+</section>
+<section name="UUID version 3">
+<p>
+  Version 3 UUIDs are initialized using a name, a namespace, and the MD5
+  hashing algorithm.
+</p>
+</section>
+<section name="UUID version 5">
+<p>
+  Version 5 UUIDs are initialized using a name, a namespace, and the SHA-1
+  hashing algorithm.
+</p>
+</section>
+<section name="UUID version 1">
+<p>
+  The version 1 UUID is a combination of node identifier (MAC address),
+   timestamp and a random seed. The version one generator uses the
+   commons-discovery package to determine the implementation. The
+   implementations are specified by system properties.
+</p>
+<table>
+    <tr>
+      <th>Property</th>
+      <th>Default</th>
+    </tr>
+    <tr>
+      <td>org.apache.commons.id.uuid.clock.Clock</td>
+      <td>org.apache.commons.id.uuid.clock.SystemClockImpl</td>
+    </tr>
+    <tr>
+      <td>org.apache.commons.id.uuid.NodeManager</td>
+      <td>org.apache.commons.id.uuid.NodeManagerImpl</td>
+    </tr>
+    <tr>
+      <td>org.apache.commons.id.uuid.state.State</td>
+      <td>org.apache.commons.id.uuid.state.ReadOnlyResourceImpl</td>
+    </tr>
+    <tr>
+      <td>org.apache.commons.id.uuid.config.resource.filename</td>
+      <td>[No default, you must explicitly configure this for each jvm instance.]</td>
+    </tr>
+</table>
+ <subsection name="Persistent State">
+  <p>
+  The UUID draft specification calls for persisting generator state to stable
+  non-volatile storage (provisions are made for systems that can not provide
+  persistent storage.) Persisting state decreases the likelihood of duplicating
+  time and random seed (clock sequence) values, which are two components of the
+  version one identifier. When the previous clock sequence is unknown the
+  generator must generate new random bytes for the clock sequence. The system
+  time may be set backwards during normal operation of a system; accordingly
+  the generator is required to change the clock sequence value.
+  </p>
+  <p>
+  The State interface in the <code>org.apache.commons.id.uuid.state</code>
+  package provides the interface for persistent state used by the
+  VersionOneGenerator. Three implementations are provided to accommodate 
+  different scenarios. The <code>InMemoryStateImpl</code> follows the
+  recommendations of the specification for those instances when no persistent
+  storage is available and the hardware (MAC) address cannot be read. The 
+  <code>ReadOnlyResourceImpl</code> implementation is useful for situations or
+  containers that allow resource loading, but forbid explicit I/O. The xml
+  state file contains the node identifier (hardware address) and is loaded as a
+  system resource. Finally, the <code>ReadWriteFileImpl</code> extends the
+  <code>ReadOnlyResourceImpl</code> (both share the same loading of
+   configuration data); however the <code>ReadWriteFileImpl</code> uses IO to
+   write the clock sequence and last timestamp used to file.
+  </p>
+  <p>
+  The following is an example configuration file xml (be certain to change the
+   uuid.state file for each 
+  virtual machine instance):
+  </p>
+  <source>
+  <pre>
+   &lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+   &lt;!DOCTYPE uuidstate [
+      &lt;!ELEMENT uuidstate (node*)&gt;
+      &lt;!ELEMENT node EMPTY&gt;
+      &lt;!ATTLIST node id ID #REQUIRED&gt;
+      &lt;!ATTLIST node clocksequence CDATA #IMPLIED&gt;
+      &lt;!ATTLIST node lasttimestamp CDATA #IMPLIED&gt;
+   ]&gt;
+   &lt;uuidstate synchInterval="3000"&gt;
+        &lt;node id="AA-BB-CC-DD-EE-11" /&gt;
+        &lt;node id="22-33-44-55-66-77" /&gt;
+   &lt;/uuidstate&gt;
+  </pre>
+  </source>
+  <p>
+  The &quot;synchInterval&quot; attribute is specified as the number of
+  milliseconds between writes to the file to update the
+  &quot;clocksequence&quot; and &quot;lasttimestamp&quot;. This interval should
+  be set large enough to provide adequate performance, yet attempt not to
+  specify a time longer than the time needed to restart the virtual machine and
+  generate the next UUID. See the IETF draft for more on this strategy
+  (specification:  &quot;4.2.1.3 Writing stable storage&quot;.)
+  </p>
+  <p>
+  The UUID specification is written with the frame of reference that one or
+  more physical (MAC address) node identifiers belong to a machine. Java&apos;s
+  Virtual Machine concept is that a physical machine hosts a virtual machine.
+  The <code>ReadOnlyResourceImpl</code> and <code>ReadWriteFileImpl</code>
+  implementations assume that each virtual machine <b>instance</b> is assigned
+  a <b>distinct</b> configuration file with distinct identifiers/addresses.
+  Without this assumption a system wide mutex or mutual exclusion object is
+  required to prevent multiple virtual machine instance (either different
+  jvm&apos;s or concurrent instances of the same jvm) from generating
+  duplicates at the same time using the same clock sequence and identifier.
+  Writing a custom implementation of the <code>NodeManager</code> interface
+  allows one to change this assumption. Several means of locking the node
+  identifier are possible, such as file system locks, sockets, and more - but
+  not discussed here, as not all are appropriate for all application
+  containers.
+  </p>
+ </subsection>
+ <subsection name="Time Resolution">
+  <p>
+  Another obstacle in UUID generation for various systems is the time
+  resolution called for in the UUID draft is based on 100-nanosecond intervals
+  from the Gregorian changeover epoch. The Java language provides millisecond
+  precision when retrieving system time; however the actual time resolution is
+  operating system and chipset dependent. The issue is that calls for the
+  system time in rapid succession produce duplicate time values and
+  sub-millisecond resolution is only provided by performance counters,
+  interrupts, or otherwise. The UUID specification provides a means of
+  compensating for this - suggesting use of an artificial time produced from
+  the actual time and a counter that may not exceed the next interval of the
+  system&apos;s effective-resolution. The 
+  <code>org.apache.commons.id.clock.Clock</code> interface provides the SPI for
+   uuid time stamps. The <code>SystemClockImpl</code> implementation uses the
+   millisecond resolution of the <code>System.currentTimeMillis</code> plus a count
+   up to 10,000. 
+  </p>
+  <p>
+  Now assume your system has an effective resolution of 54 milliseconds (the
+  clock increments after 54 milliseconds). This would allow less than 200
+  UUID&apos;s to be generated per millisecond. In the case where greater
+  numbers must be generated,  the <code>ThreadClockImpl</code> is provided as
+  one potential solution. This implementation uses a threaded clock class to
+  increment on a scheduled interval and up to (10,000 multiplied by the
+  interval length) UUID&apos;s may be generated. Other methods to increase the
+  generator throughput are described in the UUID draft (such as adding more
+  node identifiers or pre-generating id&apos;s to deal with sporadic demand). 
+  </p>
+ </subsection>
+</section>
+<section name="Security">
+<p>
+  One final issue to consider in UUID generation is security. A version one
+  uuid exposes the node identifier as part of its string format. This may be
+  very undesirable during non-secure transmision of the identifier. Another
+  aspect of the security concern relates to privacy given that the version one
+  uuid may identify a time and place (machine address). Your security
+  requirements may determine the uuid version, the source of the identifier
+  and/or the state implementation you chose.
+</p>
+</section>
+</body>
+</document>
+
+

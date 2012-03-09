@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/serial
+END
+AlphanumericGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/serial/AlphanumericGenerator.java
+END
+PrefixedNumericGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/serial/PrefixedNumericGenerator.java
+END
+TimeBasedAlphanumericIdentifierGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/serial/TimeBasedAlphanumericIdentifierGenerator.java
+END
+LongGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/serial/LongGenerator.java
+END
+PrefixedAlphanumericGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/serial/PrefixedAlphanumericGenerator.java
+END
+NumericGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/serial/NumericGenerator.java
+END
+PrefixedLeftPaddedNumericGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/serial/PrefixedLeftPaddedNumericGenerator.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/asf/!svn/ver/560660/commons/sandbox/id/trunk/src/java/org/apache/commons/id/serial/package.html
+END
