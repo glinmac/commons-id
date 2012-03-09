@@ -274,31 +274,36 @@ public class UUIDTest extends TestCase {
      *  @throws Exception an exception while testing
      */
     public void testNameUUIDFromString() throws Exception {
-    	//UUID assigned to URL Namespace  
-    	UUID ns = UUID.fromString("6ba7b810-9dad-11d1-80b4-00c04fd430c8");
-    	//UUID assigned to ISO OID  
-    	UUID nsAlt = UUID.fromString("6ba7b812-9dad-11d1-80b4-00c04fd430c8");
-    	
-    	String name = "www.apache.org";
-    	String nameAlt = "people.apache.org";
-    	UUID test1 = UUID.nameUUIDFromString(name, ns);
+        //UUID assigned to URL Namespace
+        UUID ns = UUID.fromString("6ba7b810-9dad-11d1-80b4-00c04fd430c8");
+        //UUID assigned to ISO OID
+        UUID nsAlt = UUID.fromString("6ba7b812-9dad-11d1-80b4-00c04fd430c8");
 
-    	assertEquals(Constants.VARIANT_IETF_DRAFT, test1.variant());
-    	assertEquals(Constants.VERSION_THREE, test1.version());
+        String name = "www.apache.org";
+        String nameAlt = "people.apache.org";
 
-    	//Assert not same - same name from different namespace
-    	UUID test2 = UUID.nameUUIDFromString(name, nsAlt);
-    	assertTrue(!test2.equals(test1));
-    	//Assert not same - same namespace different names
-    	UUID test3 = UUID.nameUUIDFromString(nameAlt, ns);
-    	assertTrue(!test3.equals(test1));
-    	//Assert equals different UUID instance from same name, namespace
-    	UUID test4 = UUID.nameUUIDFromString(name, ns);
-    	assertTrue(test4.equals(test1));
-    	
-    	//Sample output from IETF sample code
-    	UUID known = UUID.nameUUIDFromString("www.widgets.com", ns);
-    	assertEquals("3d813cbb-47fb-32ba-91df-831e1593ac29", known.toString());
+        // Reference UUID for namesUUIDFromString(ns, name, MD5)
+        UUID ref = UUID.fromString("ba6895f8-1ae5-3453-8f65-0250e4b594cc");
+
+        // Test implementation
+        UUID test1 = UUID.nameUUIDFromString(name, ns);
+
+        assertEquals(Constants.VARIANT_IETF_DRAFT, test1.variant());
+        assertEquals(Constants.VERSION_THREE, test1.version());
+
+        //Assert not same - same name from different namespace
+        UUID test2 = UUID.nameUUIDFromString(name, nsAlt);
+        assertTrue(!test2.equals(ref));
+        //Assert not same - same namespace different names
+        UUID test3 = UUID.nameUUIDFromString(nameAlt, ns);
+        assertTrue(!test3.equals(ref));
+        //Assert equals different UUID instance from same name, namespace
+        UUID test4 = UUID.nameUUIDFromString(name, ns);
+        assertTrue(test4.equals(ref));
+
+        //Sample output from IETF sample code
+        UUID known = UUID.nameUUIDFromString("www.widgets.com", ns);
+        assertEquals("3d813cbb-47fb-32ba-91df-831e1593ac29", known.toString());
     }
 
     /**
@@ -306,31 +311,36 @@ public class UUIDTest extends TestCase {
      * as specified in version 4 of the UUID draft.
      */
     public void testNameUUIDFromStringSha1() throws Exception {
-    	//UUID assigned to URL Namespace  
-    	UUID ns = UUID.fromString("6ba7b810-9dad-11d1-80b4-00c04fd430c8");
-    	//UUID assigned to ISO OID  
-    	UUID nsAlt = UUID.fromString("6ba7b812-9dad-11d1-80b4-00c04fd430c8");
-    	
-    	String name = "www.apache.org";
-    	String nameAlt = "people.apache.org";
-    	UUID test1 = UUID.nameUUIDFromString(name, ns, UUID.SHA1_ENCODING);
+        //UUID assigned to URL Namespace
+        UUID ns = UUID.fromString("6ba7b810-9dad-11d1-80b4-00c04fd430c8");
+        //UUID assigned to ISO OID
+        UUID nsAlt = UUID.fromString("6ba7b812-9dad-11d1-80b4-00c04fd430c8");
 
-    	assertEquals(Constants.VARIANT_IETF_DRAFT, test1.variant());
-    	assertEquals(Constants.VERSION_FIVE, test1.version());
+        String name = "www.apache.org";
+        String nameAlt = "people.apache.org";
 
-    	//Assert not same - same name from different namespace
-    	UUID test2 = UUID.nameUUIDFromString(name, nsAlt, UUID.SHA1_ENCODING);
-    	assertTrue(!test2.equals(test1));
-    	//Assert not same - same namespace different names
-    	UUID test3 = UUID.nameUUIDFromString(nameAlt, ns, UUID.SHA1_ENCODING);
-    	assertTrue(!test3.equals(test1));
-    	//Assert equals different UUID instance from same name, namespace
-    	UUID test4 = UUID.nameUUIDFromString(name, ns, UUID.SHA1_ENCODING);
-    	assertTrue(test4.equals(test1));
-		    
+        // Reference UUID for namesUUIDFromString(ns, name, SHA1)
+        UUID ref = UUID.fromString("ae4c3324-de7a-56e4-89b1-6d826b771abd");
+
+        // Test implementation
+        UUID test1 = UUID.nameUUIDFromString(name, ns, UUID.SHA1_ENCODING);
+
+        assertEquals(Constants.VARIANT_IETF_DRAFT, test1.variant());
+        assertEquals(Constants.VERSION_FIVE, test1.version());
+
+        //Assert not same - same name from different namespace
+        UUID test2 = UUID.nameUUIDFromString(name, nsAlt, UUID.SHA1_ENCODING);
+        assertTrue(!test2.equals(ref));
+        //Assert not same - same namespace different names
+        UUID test3 = UUID.nameUUIDFromString(nameAlt, ns, UUID.SHA1_ENCODING);
+        assertTrue(!test3.equals(ref));
+        //Assert equals different UUID instance from same name, namespace
+        UUID test4 = UUID.nameUUIDFromString(name, ns, UUID.SHA1_ENCODING);
+        assertTrue(test4.equals(ref));
+
     }
 
-    
+
     /**
      * Test the toString of UUID
      *
@@ -392,12 +402,12 @@ public class UUIDTest extends TestCase {
         UUID v2 = new UUID("3051a8d7-aea7-2801-e0bf-bc539dd60cf3"); //Version two   0x28 = 0010 1000
         UUID v3 = new UUID("3051a8d7-aea7-3801-e0bf-bc539dd60cf3"); //Version three 0x38 = 0011 1000
         UUID v4 = new UUID("3051a8d7-aea7-4801-e0bf-bc539dd60cf3"); //Version four  0x48 = 0100 1000
-	UUID v5 = new UUID("3051a8d7-aea7-3801-e0bf-bc539dd60cf3"); //Version five  0x38 = 0011 1000
+        UUID v5 = new UUID("3051a8d7-aea7-5801-e0bf-bc539dd60cf3"); //Version five  0x58 = 0101 1000
         assertEquals(UUID.VERSION_ONE, v1.version());
         assertEquals(UUID.VERSION_TWO, v2.version());
         assertEquals(UUID.VERSION_THREE, v3.version());
         assertEquals(UUID.VERSION_FOUR, v4.version());
-	assertEquals(UUID.VERSION_FIVE, v5.version());
+        assertEquals(UUID.VERSION_FIVE, v5.version());
     }
 
     /**

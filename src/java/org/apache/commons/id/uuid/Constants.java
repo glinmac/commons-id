@@ -93,8 +93,8 @@ public interface Constants {
     /** Version four constant for UUID version four of four */
     int VERSION_FOUR = 4;
 
-    /** Version five constant for UUID version five - identical to version 3 */
-    int VERSION_FIVE = 3;
+    /** Version five constant for UUID version five  */
+    int VERSION_FIVE = 5;
 
     /** Constants that correspond to the encoding being used, a la 
      * http://www.ietf.org/internet-drafts/draft-mealling-uuid-urn-04.txt.

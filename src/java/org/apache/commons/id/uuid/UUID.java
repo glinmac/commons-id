@@ -441,18 +441,21 @@ public class UUID implements Constants, Serializable, Comparable {
 			byte[] shaDigest = DigestUtils.sha(concat);
 			// Truncate digest to 16 bytes (SHA-1 returns a 20-byte digest)
 			raw = new byte[16];
-			System.arraycopy(shaDigest, 0, raw, 0, 16); 
+			System.arraycopy(shaDigest, 0, raw, 0, 16);
 		}
 		else {
 			throw new RuntimeException("Unsupported encoding " + encoding);
 		}
-		
-		
-		//Set version (version 3 and version 5 are identical on a bit-level,
-		//thus we only need ever set one of them
+
+		// Set appropriate version
 		raw[TIME_HI_AND_VERSION_BYTE_6] &= 0x0F;
-		raw[TIME_HI_AND_VERSION_BYTE_6] |= (UUID.VERSION_THREE << 4);
-		
+		if (encoding.equals(UUID.MD5_ENCODING)) {
+			raw[TIME_HI_AND_VERSION_BYTE_6] |= UUID.VERSION_THREE << 4;
+		}
+		else {
+			raw[TIME_HI_AND_VERSION_BYTE_6] |= UUID.VERSION_FIVE << 4;
+		}
+
 		//Set variant
 		raw[CLOCK_SEQ_HI_AND_RESERVED_BYTE_8] &= 0x3F; //0011 1111
 		raw[CLOCK_SEQ_HI_AND_RESERVED_BYTE_8] |= 0x80; //1000 0000
