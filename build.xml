@@ -184,7 +184,7 @@
   <target name="get-dep-commons-discovery.jar" description="o Download the dependency : commons-discovery.jar" unless="commons-discovery.jar" depends="init,setProxy,noProxy,get-custom-dep-commons-discovery.jar">
     <mkdir dir="${libdir}/commons-discovery/jars/">
     </mkdir>
-    <get dest="${libdir}/commons-discovery/jars/commons-discovery-0.2.jar" usetimestamp="true" ignoreerrors="true" src="http://www.ibiblio.org/maven/commons-discovery/jars/commons-discovery-0.2.jar">
+    <get dest="${libdir}/commons-discovery/jars/commons-discovery-0.2.jar" usetimestamp="true" ignoreerrors="true" src="http://repo1.maven.org/maven2/commons-discovery/commons-discovery/0.2/commons-discovery-0.2.jar">
     </get>
   </target>
   <target name="get-custom-dep-commons-discovery.jar" if="commons-discovery.jar" depends="init,setProxy,noProxy">
@@ -196,7 +196,7 @@
   <target name="get-dep-commons-logging.jar" description="o Download the dependency : commons-logging.jar" unless="commons-logging.jar" depends="init,setProxy,noProxy,get-custom-dep-commons-logging.jar">
     <mkdir dir="${libdir}/commons-logging/jars/">
     </mkdir>
-    <get dest="${libdir}/commons-logging/jars/commons-logging-1.0.3.jar" usetimestamp="true" ignoreerrors="true" src="http://www.ibiblio.org/maven/commons-logging/jars/commons-logging-1.0.3.jar">
+    <get dest="${libdir}/commons-logging/jars/commons-logging-1.0.3.jar" usetimestamp="true" ignoreerrors="true" src="http://repo1.maven.org/maven2/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3.jar">
     </get>
   </target>
   <target name="get-custom-dep-commons-logging.jar" if="commons-logging.jar" depends="init,setProxy,noProxy">
@@ -208,7 +208,7 @@
   <target name="get-dep-ant.jar" description="o Download the dependency : ant.jar" unless="ant.jar" depends="init,setProxy,noProxy,get-custom-dep-ant.jar">
     <mkdir dir="${libdir}/ant/jars/">
     </mkdir>
-    <get dest="${libdir}/ant/jars/ant-1.5.3-1.jar" usetimestamp="true" ignoreerrors="true" src="http://www.ibiblio.org/maven/ant/jars/ant-1.5.3-1.jar">
+    <get dest="${libdir}/ant/jars/ant-1.5.3-1.jar" usetimestamp="true" ignoreerrors="true" src="http://mirrors.ibiblio.org/pub/mirrors/maven/ant/jars/ant-1.5.3-1.jar">
     </get>
   </target>
   <target name="get-custom-dep-ant.jar" if="ant.jar" depends="init,setProxy,noProxy">
@@ -220,7 +220,7 @@
   <target name="get-dep-junit.jar" description="o Download the dependency : junit.jar" unless="junit.jar" depends="init,setProxy,noProxy,get-custom-dep-junit.jar">
     <mkdir dir="${libdir}/junit/jars/">
     </mkdir>
-    <get dest="${libdir}/junit/jars/junit-3.8.1.jar" usetimestamp="true" ignoreerrors="true" src="http://www.ibiblio.org/maven/junit/jars/junit-3.8.1.jar">
+    <get dest="${libdir}/junit/jars/junit-3.8.1.jar" usetimestamp="true" ignoreerrors="true" src="http://mirrors.ibiblio.org/pub/mirrors/maven/junit/jars/junit-3.8.1.jar">
     </get>
   </target>
   <target name="get-custom-dep-junit.jar" if="junit.jar" depends="init,setProxy,noProxy">
@@ -232,7 +232,7 @@
   <target name="get-dep-maven-cobertura-plugin.jar" description="o Download the dependency : maven-cobertura-plugin.jar" unless="maven-cobertura-plugin.jar" depends="init,setProxy,noProxy,get-custom-dep-maven-cobertura-plugin.jar">
     <mkdir dir="${libdir}/maven-plugins/plugins/">
     </mkdir>
-    <get dest="${libdir}/maven-plugins/plugins/maven-cobertura-plugin-1.1.1.jar" usetimestamp="true" ignoreerrors="true" src="http://www.ibiblio.org/maven/maven-plugins/plugins/maven-cobertura-plugin-1.1.1.jar">
+    <get dest="${libdir}/maven-plugins/plugins/maven-cobertura-plugin-1.1.1.jar" usetimestamp="true" ignoreerrors="true" src="http://mirrors.ibiblio.org/pub/mirrors/maven/maven-plugins/plugins/maven-cobertura-plugin-1.1.1.jar">
     </get>
   </target>
   <target name="get-custom-dep-maven-cobertura-plugin.jar" if="maven-cobertura-plugin.jar" depends="init,setProxy,noProxy">
@@ -244,7 +244,7 @@
   <target name="get-dep-maven-xdoc-plugin.jar" description="o Download the dependency : maven-xdoc-plugin.jar" unless="maven-xdoc-plugin.jar" depends="init,setProxy,noProxy,get-custom-dep-maven-xdoc-plugin.jar">
     <mkdir dir="${libdir}/maven/plugins/">
     </mkdir>
-    <get dest="${libdir}/maven/plugins/maven-xdoc-plugin-1.9.2.jar" usetimestamp="true" ignoreerrors="true" src="http://www.ibiblio.org/maven/maven/plugins/maven-xdoc-plugin-1.9.2.jar">
+    <get dest="${libdir}/maven/plugins/maven-xdoc-plugin-1.9.2.jar" usetimestamp="true" ignoreerrors="true" src="http://mirrors.ibiblio.org/pub/mirrors/maven/maven/plugins/maven-xdoc-plugin-1.9.2.jar">
     </get>
   </target>
   <target name="get-custom-dep-maven-xdoc-plugin.jar" if="maven-xdoc-plugin.jar" depends="init,setProxy,noProxy">
